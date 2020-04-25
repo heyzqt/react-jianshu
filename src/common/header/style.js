@@ -60,6 +60,27 @@ export const SearchWrapper = styled.div`
     line-height: 30px;
     text-align: center;
     border-radius: 15px;
+
+    &.focused {
+      background-color: #777;
+      color: #fff;
+    }
+  }
+
+  .slide-enter {
+    transition: all .2s ease-out;
+  }
+
+  .slide-enter-active {
+    width: 240px;
+  }
+
+  .slide-exit {
+    transition: all .2s ease-out;
+  }
+
+  .slide-exit-active {
+    width: 160px;
   }
 `
 
@@ -80,6 +101,10 @@ export const NavSearch = styled.input.attrs({
   margin-left: 20px;
   &::placeholder {
     color: #999;
+  }
+
+  &.focused {
+    width: 240px;
   }
 `;
 
