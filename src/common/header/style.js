@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LogoPic from "../../statics/logo.png"
+import LogoPic from "../../statics/logo.png";
 
 export const HeaderWrapper = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Logo = styled.a.attrs({
-    href: '/' //也可以直接写在index.js，<Logo href="/"/>
+  href: "/" //也可以直接写在index.js，<Logo href="/"/>
 })`
   position: absolute;
   top: 0;
@@ -18,10 +18,103 @@ export const Logo = styled.a.attrs({
   height: 56px;
   background: url(${LogoPic});
   background-size: cover;
-`
+`;
 
 export const Nav = styled.div`
   width: 960px;
   height: 100%;
   margin: 0 auto;
+  padding-right: 70px;
+  box-sizing: border-box;
+`;
+
+export const NavItem = styled.div`
+  display: inline-block;
+  line-height: 26px;
+  padding: 15px;
+  color: #333;
+
+  &.active {
+    color: #ea6f5a;
+  }
+
+  &.left {
+    float: left;
+  }
+
+  &.right {
+    float: right;
+    color: #969696;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  float: left;
+  position: relative;
+
+  .iconfont {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+  }
+`
+
+export const NavSearch = styled.input.attrs({
+  placeholder: "搜索"
+})`
+  width: 160px;
+  height: 38px;
+  padding: 0 40px 0 20px;
+  border: none;
+  outline: none;
+  border: 1px solid #eee;
+  border-radius:  40px;
+  box-sizing: border-box;
+  margin-top: 9px;
+  background-color: #eee;
+  font-size: 14px;
+  margin-left: 20px;
+  &::placeholder {
+    color: #999;
+  }
+`;
+
+export const Addition = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 56px;
+`
+
+export const Button = styled.div`
+  line-height: 38px;
+  border-radius: 20px;
+  font-size: 15px;
+  float: right;
+  margin-right: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  &.reg-btn {
+    width: 80px;
+    height: 38px;
+    color: #ea6f5a;
+    border: 1px solid rgba(236,97,73,.7);
+    background-color: transparent;
+    text-align: center;
+    margin: 9px 5px 0 15px;
+  }
+
+  &.write-btn {
+    width: 110px;
+    height: 40px;
+    margin: 8px 12px 0;
+    color: #fff;
+    background-color: #ea6f5a;
+    text-align: center;
+  }
 `

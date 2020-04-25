@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
         line-height: 1;
         margin: 0;
         padding: 0;
+        font-size: 17px;
     }
     ol, ul {
         list-style: none;
