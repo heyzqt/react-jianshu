@@ -11,10 +11,7 @@ import {
 } from "./style";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import {
-  getInputFocusAction,
-  loseInputFocusAction
-} from "../../store/actionCreators";
+import { actionCreators } from "./store";
 
 const Header = (props) => {
   return (
@@ -59,12 +56,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleInputFocus() {
-      const action = getInputFocusAction();
-      dispatch(action);
+      dispatch(actionCreators.getInputFocusAction());
     },
     handleInputBlur() {
-      const action = loseInputFocusAction();
-      dispatch(action);
+      dispatch(actionCreators.loseInputFocusAction());
     }
   };
 };
