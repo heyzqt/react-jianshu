@@ -49,7 +49,9 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.get('focused')
+    focused: state.getIn(["header", "focused"]) //与下面写法等价
+    // state.get('header').get('focused') //将state转换成immutable对象
+    // state.header.get('focused') //state是JS对象，header是immutable对象
   };
 };
 
