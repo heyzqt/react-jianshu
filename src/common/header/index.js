@@ -24,9 +24,25 @@ class Header extends React.Component {
       focused,
       list,
       mouseIn,
+      page,
+      totalPage,
       handleMouseEnter,
-      handleMouseLeave
+      handleMouseLeave,
+      handleChangePage
     } = this.props;
+
+    const newList = list.toJS();
+    const pageList = [];
+    if (newList.length) {
+      for (let i = (page - 1) * 10; i < 10 * page; i++) {
+        //因为list是immutable的list，所以获取值是list.get(i)，为了方便使用toJS()将list转换成一个新的JS对象newList
+        //获取数据就可以用newList[i]就要方便一些
+        pageList.push(
+          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+        );
+      }
+    }
+
     if (focused || mouseIn) {
       return (
         <SearchInfo
@@ -35,12 +51,12 @@ class Header extends React.Component {
         >
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+            <SearchInfoSwitch onClick={() => handleChangePage(page, totalPage)}>
+              换一批
+            </SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
-            {list.map((item) => {
-              return <SearchInfoItem key={item}>{item}</SearchInfoItem>;
-            })}
+            {pageList}
           </SearchInfoList>
         </SearchInfo>
       );
@@ -91,7 +107,9 @@ const mapStateToProps = (state) => {
     // state.get('header').get('focused') //将state转换成immutable对象
     // state.header.get('focused') //state是JS对象，header是immutable对象
     list: state.getIn(["header", "list"]),
-    mouseIn: state.getIn(["header", "mouseIn"])
+    mouseIn: state.getIn(["header", "mouseIn"]),
+    page: state.getIn(["header", "page"]),
+    totalPage: state.getIn(["header", "totalPage"])
   };
 };
 
@@ -109,6 +127,13 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleMouseLeave() {
       dispatch(actionCreators.mouseLeave());
+    },
+    handleChangePage(page, totalPage) {
+      if (page < totalPage) {
+        dispatch(actionCreators.changePage(page + 1));
+      } else {
+        dispatch(actionCreators.changePage(1));
+      }
     }
   };
 };
