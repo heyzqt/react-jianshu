@@ -20,10 +20,19 @@ import { actionCreators } from "./store";
 
 class Header extends React.Component {
   getListArea() {
-    const { focused, list } = this.props;
-    if (focused) {
+    const {
+      focused,
+      list,
+      mouseIn,
+      handleMouseEnter,
+      handleMouseLeave
+    } = this.props;
+    if (focused || mouseIn) {
       return (
-        <SearchInfo>
+        <SearchInfo
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <SearchInfoTitle>
             热门搜索
             <SearchInfoSwitch>换一批</SearchInfoSwitch>
@@ -81,7 +90,8 @@ const mapStateToProps = (state) => {
     focused: state.getIn(["header", "focused"]), //与下面写法等价
     // state.get('header').get('focused') //将state转换成immutable对象
     // state.header.get('focused') //state是JS对象，header是immutable对象
-    list: state.getIn(["header", "list"])
+    list: state.getIn(["header", "list"]),
+    mouseIn: state.getIn(["header", "mouseIn"])
   };
 };
 
@@ -93,6 +103,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleInputBlur() {
       dispatch(actionCreators.loseInputFocusAction());
+    },
+    handleMouseEnter() {
+      dispatch(actionCreators.mouseEnter());
+    },
+    handleMouseLeave() {
+      dispatch(actionCreators.mouseLeave());
     }
   };
 };

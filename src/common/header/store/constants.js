@@ -1,5 +1,9 @@
-export const INPUT_GET_FOCUS = "header/input_get_focus";
+export const INPUT_GET_FOCUS = "header/INPUT_GET_FOCUS";
 
-export const INPUT_LOSE_FOCUS = "header/input_lose_focus";
+export const INPUT_LOSE_FOCUS = "header/INPUT_LOSE_FOCUS";
 
-export const CHANGE_LIST = "header/change_list";
+export const CHANGE_LIST = "header/CHANGE_LIST";
+
+export const MOUSE_ENTER = "header/MOUSE_ENTER"
+
+export const MOUSE_LEAVE = "header/MOUSE_LEAVE"

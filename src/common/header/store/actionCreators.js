@@ -10,6 +10,14 @@ export const loseInputFocusAction = () => ({
   type: actionTypes.INPUT_LOSE_FOCUS
 });
 
+export const mouseEnter = () => ({
+  type: actionTypes.MOUSE_ENTER
+});
+
+export const mouseLeave = () => ({
+  type: actionTypes.MOUSE_LEAVE
+});
+
 export const getList = () => {
   return (dispatch) => {
     //create-react-app底层是node服务器，当向"/api/headerList.json"发送请求时，create-react-app会先在工程目录找找有没有对应路由，
