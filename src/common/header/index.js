@@ -51,13 +51,19 @@ class Header extends React.Component {
         >
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch onClick={() => handleChangePage(page, totalPage)}>
+            <SearchInfoSwitch
+              onClick={() => handleChangePage(page, totalPage, this.spinIcon)}
+            >
+              <span
+                ref={(icon) => (this.spinIcon = icon)}
+                className="iconfont spin"
+              >
+                &#xe851;
+              </span>
               换一批
             </SearchInfoSwitch>
           </SearchInfoTitle>
-          <SearchInfoList>
-            {pageList}
-          </SearchInfoList>
+          <SearchInfoList>{pageList}</SearchInfoList>
         </SearchInfo>
       );
     }
@@ -84,7 +90,9 @@ class Header extends React.Component {
                 onBlur={handleInputBlur}
               ></NavSearch>
             </CSSTransition>
-            <span className={focused ? "focused iconfont" : "iconfont"}>
+            <span
+              className={focused ? "focused iconfont zoom" : "iconfont zoom"}
+            >
               &#xe848;
             </span>
             {this.getListArea(focused)}
@@ -128,7 +136,15 @@ const mapDispatchToProps = (dispatch) => {
     handleMouseLeave() {
       dispatch(actionCreators.mouseLeave());
     },
-    handleChangePage(page, totalPage) {
+    handleChangePage(page, totalPage, spin) {
+      let originAngle = spin.style.transform.replace(/[^0-9]/gi, "");
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0;
+      }
+      spin.style.transform = "rotate(" + (originAngle + 360) + "deg)";
+
       if (page < totalPage) {
         dispatch(actionCreators.changePage(page + 1));
       } else {
