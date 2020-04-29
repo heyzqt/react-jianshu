@@ -45,7 +45,7 @@ export const TopicItem = styled.div`
 // TODO topic-pic中添加了float: left;文字就垂直居中了
 
 export const HomeRight = styled.div`
-  width: 240px;
+  width: 300px;
   float: right;
 `;
 
@@ -97,6 +97,97 @@ export const ListItem = styled.div`
       height: 100%;
       border-radius: 4px;
       border: 1px solid #f0f0f0;
+    }
+  }
+`;
+
+export const QRCodeWrapper = styled.a`
+  width: 100%;
+  padding: 10px 22px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  display: block;
+
+  .qrcode {
+    width: 60px;
+    height: 60px;
+    opacity: 0.85;
+    vertical-align: middle;
+  }
+
+  .info {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+
+    .title {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .description {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #999;
+    }
+  }
+`;
+
+export const RecommendWrapper = styled.div`
+  padding-top: 26px;
+`;
+
+export const RecommendItem = styled.div`
+  .recommend-pic {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+  }
+`;
+
+export const WritterWrapper = styled.div`
+  .list {
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+    li {
+      margin-top: 15px;
+      line-height: 20px;
+    }
+    p {
+      margin-top: 2px;
+      font-size: 12px;
+      color: #969696;
+      margin: 0 0 10px;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      float: left;
+      margin-right: 10px;
+    }
+    .writer-pic {
+      width: 100%;
+      heigth: 100%;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+    }
+    .follow {
+      float: right;
+      font-size: 13px;
+      color: #42c02e;
+      margin-top: 5px;
+    }
+    .name {
+      padding-top: 5px;
+      margin-right: 60px;
+      font-size: 14px;
+      display: block;
     }
   }
 `

@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeWrapper, HomeLeft, HomeRight } from "./style";
+import { HomeWrapper, HomeLeft, HomeRight,QRCodeWrapper } from "./style";
 import Topic from "./components/Topic";
 import List from "./components/List";
 import Recommend from "./components/Recommend";
@@ -18,6 +18,13 @@ const Home = (props) => {
       </HomeLeft>
       <HomeRight>
         <Recommend />
+        <QRCodeWrapper>
+          <img className="qrcode" alt="" src="https://cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png"/>
+          <div className="info">
+            <div className="title">下载简书手机App</div>
+            <div className="description">随时随地发现和创作内容</div>
+          </div>
+        </QRCodeWrapper>
         <Writer />
       </HomeRight>
     </HomeWrapper>
