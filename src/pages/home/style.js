@@ -149,6 +149,14 @@ export const RecommendItem = styled.div`
   }
 `;
 
+export const RecommendBgItem = styled.div`
+  width: 100%;
+  height: 50px;
+  background: url(${(props) => props.imgUrl});
+  background-size: contain;
+  border-radius: 4px;
+`
+
 export const WritterWrapper = styled.div`
   .list {
     a {
