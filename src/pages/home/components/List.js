@@ -16,7 +16,7 @@ const List = (props) => {
             key={index}
           >
             <div className="content">
-              <Link className="title" to={"/detail/" + item.get("id")}>
+              <Link className="title" to={"/detail?id=" + item.get("id")}>
                 {item.get("title")}
               </Link>
               {/* <a

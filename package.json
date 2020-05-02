@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "immutable": "^4.0.0-rc.12",
     "node-sass": "^4.14.0",
+    "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-immutable": "^0.1.3",
