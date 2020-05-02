@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { HomeWrapper, HomeLeft, HomeRight, QRCodeWrapper } from "./style";
 import Topic from "./components/Topic";
 import List from "./components/List";
 import Recommend from "./components/Recommend";
 import Writer from "./components/Writer";
-import axios from "axios";
+import { connect } from "react-redux";
+import { actionCreators } from "./store";
 
 const Home = (props) => {
-  const [data, setData] = useState();
-  useEffect(async () => {
-    const result = await axios.get("/api/home.json");
-    console.log(result);
-  });
+  useEffect(() => {
+    props.changeHomeData();
+  }, []);
 
   return (
     <HomeWrapper>
@@ -19,6 +18,7 @@ const Home = (props) => {
         <img
           className="banner-img"
           src="https://upload-images.jianshu.io/upload_images/20504293-75a243a0e71285bc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+          alt=""
         />
         <Topic />
         <List />
@@ -42,4 +42,10 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+const mapDispatchToState = (dispatch) => ({
+  changeHomeData(){
+    dispatch(actionCreators.getHomeData());
+  }
+});
+
+export default connect(null, mapDispatchToState)(Home);

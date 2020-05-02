@@ -13,7 +13,7 @@ const List = (props) => {
             key={item.get("id")}
           >
             <div className="content">
-              <a className="title" href={item.get("linkUrl")} target="_blank">
+              <a className="title" href={item.get("linkUrl")} target="_blank" rel="noopener noreferrer">
                 {item.get("title")}
               </a>
               <p className="abstract">{item.get("description")}</p>
@@ -21,7 +21,7 @@ const List = (props) => {
             </div>
             {item.get("imgUrl") !== "" && (
               <div className="wrap-img">
-                <img src={item.get("imgUrl")} />
+                <img src={item.get("imgUrl")} alt=""/>
               </div>
             )}
           </ListItem>

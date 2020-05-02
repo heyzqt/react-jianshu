@@ -7,8 +7,8 @@ const Recommend = (props) => {
     <RecommendWrapper>
       {props.list.map((item) => {
         return (
-          <Fragment>
-            <RecommendItem key={item.get("id")}>
+          <Fragment key={item.get("id")}>
+            <RecommendItem>
               <a href={item.get("href")}>
                 <img
                   className="recommend-pic"
