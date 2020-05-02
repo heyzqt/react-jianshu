@@ -9,8 +9,8 @@ import Detail from "./pages/detail";
 function App() {
   return (
     <Provider store={store}>
-      <Header></Header>
       <BrowserRouter>
+        <Header></Header>
         <Route path="/" exact component={Home}></Route>
         <Route path="/detail" exact component={Detail}></Route>
       </BrowserRouter>
