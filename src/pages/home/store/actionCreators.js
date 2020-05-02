@@ -16,3 +16,16 @@ export const getHomeData = () => {
     dispatch(changeHomeData(response.data.data));
   };
 };
+
+const addHomeList = (list, nextPage) => ({
+  type: constants.ADD_HOME_LIST,
+  list: fromJS(list),
+  nextPage
+});
+
+export const getMoreList = (page) => {
+  return async (dispatch) => {
+    const response = await axios.get("/api/homeList.json?page=" + page);
+    dispatch(addHomeList(response.data.data, page + 1));
+  };
+};

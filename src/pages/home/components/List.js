@@ -1,19 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ListItem } from "../style";
+import { ListItem, LoadMore } from "../style";
 import "./style.scss";
+import { actionCreators } from "../store";
 
 const List = (props) => {
+  const { page, list, loadMore } = props;
   return (
     <div>
-      {props.list.map((item) => {
+      {list.map((item, index) => {
         return (
           <ListItem
             className={item.get("imgUrl") !== "" ? "have-img" : ""}
-            key={item.get("id")}
+            key={index}
           >
             <div className="content">
-              <a className="title" href={item.get("linkUrl")} target="_blank" rel="noopener noreferrer">
+              <a
+                className="title"
+                href={item.get("linkUrl")}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {item.get("title")}
               </a>
               <p className="abstract">{item.get("description")}</p>
@@ -21,20 +28,28 @@ const List = (props) => {
             </div>
             {item.get("imgUrl") !== "" && (
               <div className="wrap-img">
-                <img src={item.get("imgUrl")} alt=""/>
+                <img src={item.get("imgUrl")} alt="" />
               </div>
             )}
           </ListItem>
         );
       })}
+      <LoadMore onClick={() => loadMore(page)}>阅读更多</LoadMore>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    list: state.getIn(["home", "articleList"])
+    list: state.getIn(["home", "articleList"]),
+    page: state.getIn(["home", "articlePage"])
   };
 };
 
-export default connect(mapStateToProps, null)(List);
+const mapDispatchToProps = (dispatch) => ({
+  loadMore(page) {
+    dispatch(actionCreators.getMoreList(page));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

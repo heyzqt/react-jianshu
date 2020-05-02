@@ -101,6 +101,19 @@ export const ListItem = styled.div`
   }
 `;
 
+export const LoadMore = styled.div`
+  width: 100%;
+  border-radius: 20px;
+  background-color: #a5a5a5;
+  height: 40px;
+  margin: 30px auto 60px;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+  line-height: 40px;
+  cursor: pointer;
+`
+
 export const QRCodeWrapper = styled.a`
   width: 100%;
   padding: 10px 22px;
