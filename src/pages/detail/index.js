@@ -5,8 +5,9 @@ import { actionCreators } from "./store";
 
 const Detail = (props) => {
   useEffect(() => {
-    props.getDetailData();
+    props.getDetailData(props.match.params.id);
   }, []);
+
   const { title, content } = props;
   return (
     <DetailWrapper>
@@ -23,8 +24,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getDetailData: () => {
-      dispatch(actionCreators.getDetailData());
+    getDetailData: (id) => {
+      dispatch(actionCreators.getDetailData(id));
     }
   };
 };

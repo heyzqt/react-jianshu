@@ -7,9 +7,9 @@ const updateDetailData = (result) => ({
   content: result.content
 });
 
-export const getDetailData = () => {
+export const getDetailData = (id) => {
   return async (dispatch) => {
-    const response = await axios.get("/api/detail.json");
+    const response = await axios.get("/api/detail.json?id=" + id);
     dispatch(updateDetailData(response.data.data));
   };
 };

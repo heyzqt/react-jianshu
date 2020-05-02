@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { ListItem, LoadMore } from "../style";
 import "./style.scss";
 import { actionCreators } from "../store";
+import { Link } from "react-router-dom";
 
 const List = (props) => {
   const { page, list, loadMore } = props;
@@ -15,14 +16,17 @@ const List = (props) => {
             key={index}
           >
             <div className="content">
-              <a
+              <Link className="title" to={"/detail/" + item.get("id")}>
+                {item.get("title")}
+              </Link>
+              {/* <a
                 className="title"
                 href={item.get("linkUrl")}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {item.get("title")}
-              </a>
+              </a> */}
               <p className="abstract">{item.get("description")}</p>
               <div className="meta">{item.get("info")}</div>
             </div>
