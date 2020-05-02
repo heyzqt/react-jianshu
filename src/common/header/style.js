@@ -8,9 +8,7 @@ export const HeaderWrapper = styled.div`
   position: relative;
 `;
 
-export const Logo = styled.a.attrs({
-  href: "/" //也可以直接写在index.js，<Logo href="/"/>
-})`
+export const Logo = styled.div`
   position: absolute;
   top: 0;
   left: 0;
