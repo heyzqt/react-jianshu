@@ -29,3 +29,8 @@ export const getMoreList = (page) => {
     dispatch(addHomeList(response.data.data, page + 1));
   };
 };
+
+export const toggleShowScroll = (show) => ({
+  type: constants.TOGGLE_SHOW_SCROLL,
+  show
+});

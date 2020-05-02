@@ -112,7 +112,7 @@ export const LoadMore = styled.div`
   color: #fff;
   line-height: 40px;
   cursor: pointer;
-`
+`;
 
 export const QRCodeWrapper = styled.a`
   width: 100%;
@@ -149,6 +149,23 @@ export const QRCodeWrapper = styled.a`
   }
 `;
 
+export const BackTop = styled.div`
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  display: block;
+  position: fixed;
+  bottom: 40px;
+  right: 120px;
+  z-index: 1040;
+  color: #777;
+  font-size: 12px;
+  border: 1px solid #dcdcdc;
+  line-height: 50px;
+  background-color: #fff;
+`;
+
 export const RecommendWrapper = styled.div`
   padding-top: 26px;
 `;
@@ -168,7 +185,7 @@ export const RecommendBgItem = styled.div`
   background: url(${(props) => props.imgUrl});
   background-size: contain;
   border-radius: 4px;
-`
+`;
 
 export const WritterWrapper = styled.div`
   .list {
@@ -211,4 +228,4 @@ export const WritterWrapper = styled.div`
       display: block;
     }
   }
-`
+`;

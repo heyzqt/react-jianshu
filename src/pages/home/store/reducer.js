@@ -6,23 +6,34 @@ const defaultState = fromJS({
   articleList: [],
   recommendList: [],
   writerList: [],
-  articlePage: 1
+  articlePage: 1,
+  showScroll: false
 });
+
+const changeHomeData = (state, action) => {
+  return state.merge({
+    topicList: action.topicList,
+    articleList: action.articleList,
+    recommendList: action.recommendList,
+    writerList: action.writerList
+  });
+};
+
+const addHomeList = (state, action) => {
+  return state.merge({
+    articleList: state.get("articleList").concat(action.list),
+    articlePage: action.nextPage
+  });
+};
 
 export default (state = defaultState, action) => {
   switch (action.type) {
     case constants.CHANGE_HOME_DATA:
-      return state.merge({
-        topicList: action.topicList,
-        articleList: action.articleList,
-        recommendList: action.recommendList,
-        writerList: action.writerList
-      });
+      return changeHomeData(state, action);
     case constants.ADD_HOME_LIST:
-      return state.merge({
-        articleList: state.get("articleList").concat(action.list),
-        articlePage: action.nextPage
-      });
+      return addHomeList(state, action);
+    case constants.TOGGLE_SHOW_SCROLL:
+      return state.set("showScroll", action.show);
     default:
       return state;
   }
