@@ -3,10 +3,11 @@ import { DetailWrapper, Header, Content } from "./style";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
 import qs from "qs";
+import { withRouter } from "react-router-dom";
 
 const Detail = (props) => {
   useEffect(() => {
-    const id = qs.parse(props.location.search, {ignoreQueryPrefix: true}).id
+    const id = qs.parse(props.location.search, { ignoreQueryPrefix: true }).id;
     props.getDetailData(id);
   }, []);
 
@@ -32,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Detail));
