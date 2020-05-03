@@ -31,6 +31,7 @@ export const NavItem = styled.div`
   line-height: 26px;
   padding: 15px;
   color: #333;
+  cursor: pointer;
 
   &.active {
     color: #ea6f5a;
@@ -66,7 +67,7 @@ export const SearchWrapper = styled.div`
   }
 
   .slide-enter {
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
   }
 
   .slide-enter-active {
@@ -74,30 +75,30 @@ export const SearchWrapper = styled.div`
   }
 
   .slide-exit {
-    transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
   }
 
   .slide-exit-active {
     width: 160px;
   }
-`
+`;
 
 export const SearchInfo = styled.div`
   width: 250px;
   position: absolute;
   background-color: #fff;
-  box-shadow: 0 0 8px rgba(0,0,0,.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   left: 0;
   top: 56px;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 9px;
   padding: 0 20px;
-`
+`;
 
 export const SearchInfoList = styled.div`
   overflow: hidden;
-`
+`;
 
 export const SearchInfoTitle = styled.div`
   margin-top: 20px;
@@ -105,7 +106,7 @@ export const SearchInfoTitle = styled.div`
   line-height: 20px;
   font-size: 14px;
   color: #969696;
-`
+`;
 
 export const SearchInfoSwitch = styled.span`
   float: right;
@@ -115,13 +116,13 @@ export const SearchInfoSwitch = styled.span`
   .spin {
     font-size: 14px;
     margin-right: 3px;
-    transition: .2s all ease-in;
+    transition: 0.2s all ease-in;
     transform: rotate(172deg);
     display: block;
     transform-origin: center center;
     float: left;
   }
-`
+`;
 
 export const SearchInfoItem = styled.a`
   float: left;
@@ -138,7 +139,7 @@ export const SearchInfoItem = styled.a`
   &:hover {
     color: #333;
   }
-`
+`;
 
 export const NavSearch = styled.input.attrs({
   placeholder: "搜索"
@@ -149,7 +150,7 @@ export const NavSearch = styled.input.attrs({
   border: none;
   outline: none;
   border: 1px solid #eee;
-  border-radius:  40px;
+  border-radius: 40px;
   box-sizing: border-box;
   margin-top: 9px;
   background-color: #eee;
@@ -169,7 +170,7 @@ export const Addition = styled.div`
   top: 0;
   right: 0;
   height: 56px;
-`
+`;
 
 export const Button = styled.div`
   line-height: 38px;
@@ -184,7 +185,7 @@ export const Button = styled.div`
     width: 80px;
     height: 38px;
     color: #ea6f5a;
-    border: 1px solid rgba(236,97,73,.7);
+    border: 1px solid rgba(236, 97, 73, 0.7);
     background-color: transparent;
     text-align: center;
     margin: 9px 5px 0 15px;
@@ -198,4 +199,4 @@ export const Button = styled.div`
     background-color: #ea6f5a;
     text-align: center;
   }
-`
+`;
