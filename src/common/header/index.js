@@ -116,9 +116,11 @@ class Header extends React.Component {
             {this.getListArea(focused)}
           </SearchWrapper>
           <Addition>
-            <Button className="write-btn">
-              <span className="iconfont">&#xe61d;</span>写文章
-            </Button>
+            <Link to="/write">
+              <Button className="write-btn">
+                <span className="iconfont">&#xe61d;</span>写文章
+              </Button>
+            </Link>
             <Button className="reg-btn">注册</Button>
           </Addition>
         </Nav>
